@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-35px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-20px) translateX(8px);
+  }
+}
+
+.animate-float {
+  animation: float linear infinite;
+}
+
+@layer utilities {
+  .glass-pattern {
+    background: 
+      radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 40%),
+      radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 30%),
+      radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 35%),
+      radial-gradient(circle at 60% 90%, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 25%);
+  }
+
+  .glass-shine {
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      transparent 25%,
+      rgba(255, 255, 255, 0.1) 45%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.1) 55%,
+      transparent 75%,
+      transparent 100%
+    );
+    background-size: 200% 200%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: shine 2s ease-in-out infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .group:hover .glass-shine {
+    opacity: 1;
+  }
+}
