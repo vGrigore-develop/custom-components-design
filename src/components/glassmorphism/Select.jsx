@@ -9,6 +9,9 @@ const GlassmorphicSelect = ({ children, value, onChange, className = '' }) => {
         appearance-none
         backdrop-blur-md
         bg-white/10
+        bg-gradient-to-b
+        from-white/20
+        to-white/10
         rounded-xl
         border
         border-white/20
@@ -36,4 +39,4 @@ GlassmorphicSelect.propTypes = {
   className: PropTypes.string
 };
 
-export default GlassmorphicSelect
+export default GlassmorphicSelect;

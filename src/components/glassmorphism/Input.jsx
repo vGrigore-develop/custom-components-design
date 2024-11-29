@@ -17,6 +17,9 @@ const GlassmorphicInput = ({
         w-full
         backdrop-blur-md
         bg-white/10
+        bg-gradient-to-b
+        from-white/20
+        to-white/10
         rounded-xl
         border
         border-white/20
@@ -45,4 +48,4 @@ GlassmorphicInput.propTypes = {
   className: PropTypes.string
 };
 
-export default GlassmorphicInput
+export default GlassmorphicInput;

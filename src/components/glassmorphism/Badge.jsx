@@ -6,6 +6,9 @@ const GlassmorphicBadge = ({ children, className = '' }) => {
       inline-block
       backdrop-blur-md
       bg-white/10
+      bg-gradient-to-b
+      from-white/20
+      to-white/10
       rounded-full
       border
       border-white/20
