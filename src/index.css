@@ -59,4 +59,26 @@
   .group:hover .glass-shine {
     opacity: 1;
   }
+
+  .glass-base {
+    @apply backdrop-blur-md border border-white/20;
+    background: rgba(255, 255, 255, 0.15);
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.1)
+    );
+  }
+  
+  .glass-hover {
+    @apply transition-all duration-300;
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.25),
+        rgba(255, 255, 255, 0.15)
+      );
+    }
+  }
 }

@@ -13,27 +13,25 @@ const GlassmorphicInput = ({
       value={value}
       onChange={onChange}
       placeholder={placeholder}
+      style={{
+        background: 'rgba(255, 255, 255, 0.15)',
+        backgroundImage: 'linear-gradient(to bottom right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1))',
+      }}
       className={`
         w-full
         backdrop-blur-md
-        bg-white/10
-        bg-gradient-to-b
-        from-white/20
-        to-white/10
         rounded-xl
         border
-        border-white/20
+        border-[rgba(255,255,255,0.2)]
         px-4
         py-2
         text-white
-        placeholder-white/50
+        placeholder-[rgba(255,255,255,0.5)]
         transition-all
         duration-300
-        hover:border-white/30
+        hover:border-[rgba(255,255,255,0.3)]
         focus:outline-none
-        focus:border-white/40
-        focus:bg-white/15
-        focus:shadow-[0_4px_16px_0_rgba(31,38,135,0.3)]
+        focus:border-[rgba(255,255,255,0.4)]
         ${className}
       `}
     />

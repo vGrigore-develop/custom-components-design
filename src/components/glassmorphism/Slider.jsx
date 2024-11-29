@@ -1,92 +1,87 @@
 import PropTypes from 'prop-types';
 
-const GlassmorphicSlider = ({
-  min = 0,
-  max = 100,
-  value,
-  onChange,
+const GlassmorphicSlider = ({ 
+  value, 
+  onChange, 
+  min = 0, 
+  max = 100, 
+  step = 1,
+  label,
   disabled = false,
-  className = ''
+  className = '' 
 }) => {
   return (
-    <div className={`relative ${className}`}>
-      {/* Track */}
-      <div className="
-        h-4
-        backdrop-blur-md
-        bg-white/10
-        bg-gradient-to-b
-        from-white/20
-        to-white/10
-        rounded-full
-        border
-        border-white/20
-      ">
-        {/* Fill */}
-        <div 
-          className="
-            h-full 
-            bg-gradient-to-r
-            from-white/30
-            to-white/20
-            rounded-full
-          "
-          style={{ width: `${((value - min) / (max - min)) * 100}%` }}
+    <div className={`space-y-2 ${className}`}>
+      {label && (
+        <label className="block text-white/90 text-sm mb-1">
+          {label}
+        </label>
+      )}
+      <div className="relative">
+        <input
+          type="range"
+          value={value}
+          onChange={onChange}
+          min={min}
+          max={max}
+          step={step}
+          disabled={disabled}
+          className={`
+            w-full
+            appearance-none
+            bg-transparent
+            cursor-pointer
+            disabled:cursor-not-allowed
+            disabled:opacity-50
+            [&::-webkit-slider-runnable-track]:h-1
+            [&::-webkit-slider-runnable-track]:rounded-full
+            [&::-webkit-slider-runnable-track]:backdrop-blur-md
+            [&::-webkit-slider-runnable-track]:bg-white/10
+            [&::-webkit-slider-thumb]:appearance-none
+            [&::-webkit-slider-thumb]:w-5
+            [&::-webkit-slider-thumb]:h-5
+            [&::-webkit-slider-thumb]:rounded-full
+            [&::-webkit-slider-thumb]:bg-white/90
+            [&::-webkit-slider-thumb]:backdrop-blur-lg
+            [&::-webkit-slider-thumb]:border
+            [&::-webkit-slider-thumb]:border-white/20
+            [&::-webkit-slider-thumb]:shadow-lg
+            [&::-webkit-slider-thumb]:-mt-2
+            [&::-webkit-slider-thumb]:transition-all
+            [&::-webkit-slider-thumb]:duration-150
+            hover:[&::-webkit-slider-thumb]:bg-white
+            active:[&::-webkit-slider-thumb]:scale-110
+            [&::-moz-range-track]:h-1
+            [&::-moz-range-track]:rounded-full
+            [&::-moz-range-track]:bg-white/10
+            [&::-moz-range-thumb]:appearance-none
+            [&::-moz-range-thumb]:w-5
+            [&::-moz-range-thumb]:h-5
+            [&::-moz-range-thumb]:rounded-full
+            [&::-moz-range-thumb]:bg-white/90
+            [&::-moz-range-thumb]:border-none
+            [&::-moz-range-thumb]:transition-all
+            [&::-moz-range-thumb]:duration-150
+            hover:[&::-moz-range-thumb]:bg-white
+            active:[&::-moz-range-thumb]:scale-110
+          `}
         />
+        
+        <div className="absolute -top-1 right-0 text-sm text-white/70">
+          {value}
+        </div>
       </div>
-
-      {/* Actual range input */}
-      <input
-        type="range"
-        min={min}
-        max={max}
-        value={value}
-        onChange={onChange}
-        disabled={disabled}
-        className="
-          absolute
-          inset-0
-          w-full
-          opacity-0
-          cursor-pointer
-          disabled:cursor-not-allowed
-        "
-      />
-
-      {/* Custom thumb */}
-      <div 
-        className="
-          absolute
-          top-1/2
-          -translate-y-1/2
-          w-6
-          h-6
-          backdrop-blur-lg
-          bg-white/30
-          bg-gradient-to-b
-          from-white/40
-          to-white/20
-          rounded-full
-          border
-          border-white/40
-          pointer-events-none
-          transition-transform
-          duration-200
-          hover:scale-110
-        "
-        style={{ 
-          left: `calc(${((value - min) / (max - min)) * 100}% - 0.75rem)`,
-        }}
-      />
     </div>
   );
 };
 
 GlassmorphicSlider.propTypes = {
-  min: PropTypes.number,
-  max: PropTypes.number,
   value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  label: PropTypes.string,
   disabled: PropTypes.bool,
   className: PropTypes.string
 };
