@@ -40,7 +40,6 @@ const NeobrutalismSelect = ({
         {children}
       </select>
       
-      {/* Custom arrow */}
       <div className="
         absolute 
         right-4 

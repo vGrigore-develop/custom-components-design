@@ -8,20 +8,15 @@ const GlassmorphicModal = ({ children, isOpen, onClose, className = '' }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop with subtle blur */}
       <div 
         className={`
           absolute 
           inset-0 
-          ${isSafari 
-            ? 'bg-black/20' 
-            : 'backdrop-blur-[4px] bg-black/5'
-          }
+          ${isSafari ? 'backdrop-blur-xl' : 'backdrop-blur-[4px]'}
         `}
         onClick={onClose}
       />
       
-      {/* Modal content */}
       <div className={`
         relative
         rounded-3xl
@@ -33,30 +28,27 @@ const GlassmorphicModal = ({ children, isOpen, onClose, className = '' }) => {
         duration-300
         animate-modal-appear
         overflow-hidden
-        ${isSafari 
-          ? 'bg-[#ffffff33] border-[#ffffff33]' 
-          : 'backdrop-blur-[6px] bg-white/10 border-white/10'
-        }
-        shadow-[0_8px_32px_0_rgba(31,38,135,0.15)]
+        ${isSafari ? `
+          bg-black/5
+          backdrop-blur-xl
+          border-white/40
+          shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]
+        ` : `
+          backdrop-blur-[6px]
+          bg-white/10
+          border-white/10
+          shadow-[0_8px_32px_0_rgba(31,38,135,0.15)]
+        `}
         ${className}
       `}>
-        {/* Glass pattern overlay */}
-        <div className="
-          absolute
-          inset-0
-          glass-pattern
-          opacity-20
-        "/>
-        
-        {/* Subtle light reflection effect */}
         <div className="
           absolute
           inset-0
           bg-gradient-to-br
-          from-white/5
-          via-transparent
+          from-white/20
+          via-white/10
           to-transparent
-          opacity-50
+          pointer-events-none
         "/>
 
         <div className="relative z-10">

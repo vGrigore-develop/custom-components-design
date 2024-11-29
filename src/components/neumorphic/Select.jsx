@@ -25,7 +25,6 @@ const NeumorphicSelect = ({ children, value, onChange, className = '' }) => {
         {children}
       </select>
       
-      {/* Custom arrow */}
       <div className="
         absolute 
         right-4 

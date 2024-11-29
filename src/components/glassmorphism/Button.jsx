@@ -36,7 +36,6 @@ const GlassmorphicButton = ({
         ${className}
       `}
     >
-      {/* Glass pattern overlay */}
       <div className="
         absolute
         inset-0
@@ -44,7 +43,6 @@ const GlassmorphicButton = ({
         opacity-20
       "/>
       
-      {/* Subtle light reflection effect */}
       <div className="
         absolute
         inset-0

@@ -13,7 +13,6 @@ const GlassmorphicSlider = ({
 
   return (
     <div className={`relative ${className}`}>
-      {/* Track */}
       <div className={`
         h-4
         rounded-full
@@ -23,7 +22,6 @@ const GlassmorphicSlider = ({
           : 'backdrop-blur-md bg-white/10 border-white/20'
         }
       `}>
-        {/* Fill */}
         <div 
           className={`
             h-full 
@@ -34,7 +32,6 @@ const GlassmorphicSlider = ({
         />
       </div>
 
-      {/* Actual range input */}
       <input
         type="range"
         min={min}
@@ -52,7 +49,6 @@ const GlassmorphicSlider = ({
         "
       />
 
-      {/* Custom thumb */}
       <div 
         className={`
           absolute
