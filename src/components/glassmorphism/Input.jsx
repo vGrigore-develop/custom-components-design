@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useIsSafari } from '../../hooks/useIsSafari';
 
 const GlassmorphicInput = ({ 
   placeholder, 
@@ -7,31 +8,32 @@ const GlassmorphicInput = ({
   onChange,
   className = '' 
 }) => {
+  const isSafari = useIsSafari();
+
   return (
     <input
       type={type}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      style={{
-        background: 'rgba(255, 255, 255, 0.15)',
-        backgroundImage: 'linear-gradient(to bottom right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1))',
-      }}
       className={`
         w-full
-        backdrop-blur-md
         rounded-xl
         border
-        border-[rgba(255,255,255,0.2)]
         px-4
         py-2
         text-white
-        placeholder-[rgba(255,255,255,0.5)]
+        placeholder-white/50
         transition-all
         duration-300
-        hover:border-[rgba(255,255,255,0.3)]
+        ${isSafari 
+          ? 'bg-[#ffffff33] border-[#ffffff33]' // Safari fallback
+          : 'backdrop-blur-md bg-white/10 border-white/20'
+        }
+        hover:border-white/30
         focus:outline-none
-        focus:border-[rgba(255,255,255,0.4)]
+        focus:border-white/40
+        focus:bg-white/15
         ${className}
       `}
     />

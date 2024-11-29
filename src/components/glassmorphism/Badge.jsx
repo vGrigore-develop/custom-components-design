@@ -1,23 +1,24 @@
 import PropTypes from 'prop-types';
+import { useIsSafari } from '../../hooks/useIsSafari';
 
 const GlassmorphicBadge = ({ children, className = '' }) => {
+  const isSafari = useIsSafari();
+
   return (
     <span className={`
       inline-block
-      backdrop-blur-md
-      bg-white/10
-      bg-gradient-to-b
-      from-white/20
-      to-white/10
       rounded-full
       border
-      border-white/20
       px-3
       py-1
       text-sm
       text-white
       transition-all
       duration-300
+      ${isSafari 
+        ? 'bg-[#ffffff33] border-[#ffffff33]' 
+        : 'backdrop-blur-md bg-white/10 border-white/20'
+      }
       hover:bg-white/15
       ${className}
     `}>

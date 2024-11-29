@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useIsSafari } from '../../hooks/useIsSafari';
 
 const GlassmorphicCheckbox = ({ 
   checked, 
@@ -7,6 +8,8 @@ const GlassmorphicCheckbox = ({
   disabled = false,
   className = '' 
 }) => {
+  const isSafari = useIsSafari();
+
   return (
     <label className={`
       inline-flex 
@@ -26,19 +29,19 @@ const GlassmorphicCheckbox = ({
         />
         <div className={`
           w-5 h-5
-          backdrop-blur-md
-          bg-white/10
           border
-          border-white/20
           rounded
           transition-all
           duration-300
-          peer-checked:bg-white/20
           peer-checked:border-white/30
           peer-hover:border-white/30
           peer-checked:shadow-[0_2px_8px_0_rgba(255,255,255,0.2)]
           relative
           overflow-hidden
+          ${isSafari 
+            ? 'bg-[#ffffff33] border-[#ffffff33] peer-checked:bg-[#ffffff4d]' 
+            : 'backdrop-blur-md bg-white/10 border-white/20 peer-checked:bg-white/20'
+          }
         `}>
           <div className="absolute inset-0 glass-pattern opacity-20" />
           
